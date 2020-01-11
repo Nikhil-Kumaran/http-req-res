@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/get', getRoutes)
 // app.use('/head',headRoutes)
 app.use('/post', postRoutes)
-// app.use('/put',putRoutes)
+app.use('/put', putRoutes)
 // app.use('/patch',patchRoutes)
 
 app.get('/', (req, res) => {

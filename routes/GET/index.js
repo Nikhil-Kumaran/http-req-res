@@ -21,7 +21,7 @@ router.get('/users/:id', (req, res) => {
   const user = users.find(user => user.id === parseInt(req.params.id))
 
   if (!user) {
-    res.status(404).end()
+    return res.status(404).end()
   }
   res.status(200).send(user)
 })
