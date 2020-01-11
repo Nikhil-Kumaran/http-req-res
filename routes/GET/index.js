@@ -18,11 +18,12 @@ router.get('/users', (req, res) => {
 
 router.get('/users/:id', (req, res) => {
   const users = JSON.parse(fs.readFileSync(usersPath))
-  const user = users.filter(user => user.id === parseInt(req.params.id))
-  if (user.length === 0) {
-    res.status(404).send()
+  const user = users.find(user => user.id === parseInt(req.params.id))
+
+  if (!user) {
+    res.status(404).end()
   }
-  res.status(200).send(user[0])
+  res.status(200).send(user)
 })
 
 router.get('/*', (req, res) => {
